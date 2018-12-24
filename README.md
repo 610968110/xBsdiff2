@@ -25,5 +25,6 @@
 Bsdiff2.split(oldpath, newpath, patch,listener);
 ### 获取当前已安装的apk包：     
 Bsdiff2.getInstallApkPath(context)
-### 安装apk：     
-Bsdiff2.install(context, apkPath);
+### 安装apk：    
+provider是适配7.0以上的provider,7.0以下可传null        
+Bsdiff2.install(context, provider, apkPath);

@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String getsdpath() {g
+    private String getsdpath() {
         return Environment.getExternalStorageDirectory().getPath() + File.separator;
     }
 
