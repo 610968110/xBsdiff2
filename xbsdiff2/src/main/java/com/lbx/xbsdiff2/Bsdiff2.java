@@ -3,6 +3,8 @@ package com.lbx.xbsdiff2;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.support.v4.content.FileProvider;
 
 import java.io.File;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -96,10 +98,32 @@ public class Bsdiff2 {
         return context.getApplicationInfo().sourceDir;
     }
 
-    public static void install(Context context, String apkPath) {
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.setDataAndType(Uri.fromFile(new File(apkPath)), "application/vnd.android.package-archive");
-        context.startActivity(i);
+    /**
+     * 安装app
+     *
+     * @param context      context
+     * @param fileProvider 7.0及以上需要传入provider
+     * @param apkPath      apk路径
+     * @return 是否安装成功
+     */
+    public static boolean install(Context context, String fileProvider, String apkPath) {
+        try {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            File file = new File(apkPath);
+            Uri apkUri;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                apkUri = FileProvider.getUriForFile(context, fileProvider, file);
+                i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            } else {
+                apkUri = Uri.fromFile(file);
+            }
+            i.setDataAndType(apkUri, "application/vnd.android.package-archive");
+            context.startActivity(i);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

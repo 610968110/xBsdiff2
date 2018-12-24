@@ -76,20 +76,21 @@ public class MainActivity extends AppCompatActivity {
                                     @Override
                                     public void onFinish(String path) {
                                         append("合成新包完成：" + path);
+                                        append("请点击安装");
                                     }
                                 });
                     }
                 });
                 break;
             case R.id.bt_main2:
-                Bsdiff2.install(MainActivity.this, tmp);
+                Bsdiff2.install(MainActivity.this, "com.lbx.bisdiff.fileProvider", tmp);
                 break;
             default:
                 break;
         }
     }
 
-    private String getsdpath() {
+    private String getsdpath() {g
         return Environment.getExternalStorageDirectory().getPath() + File.separator;
     }
 
