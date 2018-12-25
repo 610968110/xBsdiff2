@@ -102,7 +102,7 @@ public class Bsdiff2 {
      * 安装app
      *
      * @param context      context
-     * @param fileProvider 7.0及以上需要传入provider
+     * @param fileProvider 7.0及以上需要传入provider 7.0以下可以传null
      * @param apkPath      apk路径
      * @return 是否安装成功
      */

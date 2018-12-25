@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 });
                 break;
             case R.id.bt_main2:
+                //第二个参数，7.0及以上需要传入provider 7.0以下可以传null
                 Bsdiff2.install(MainActivity.this, "com.lbx.bisdiff.fileProvider", tmp);
                 break;
             default:
