@@ -22,7 +22,7 @@
 @param patch    差分包路径       
 @param listener 回调      
         
-Bsdiff2.split(oldpath, newpath, patch,listener);
+Bsdiff2.synthesis(oldpath, newpath, patch,listener);
 ### 获取当前已安装的apk包：     
 Bsdiff2.getInstallApkPath(context)
 ### 安装apk：    
