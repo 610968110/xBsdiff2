@@ -5,7 +5,7 @@
 首先 引入该项目：
 
 ````xml
-  compile 'com.lbx.xBsdiff2:1.0.0'
+  compile 'com.lbx:xbsdiff2:1.0.0'
 ````
 
 ### 生成差分包 ：       
