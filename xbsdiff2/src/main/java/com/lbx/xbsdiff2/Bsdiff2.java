@@ -111,10 +111,13 @@ public class Bsdiff2 {
             Intent i = new Intent(Intent.ACTION_VIEW);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             File file = new File(apkPath);
+            if (!file.exists()) {
+                return false;
+            }
             Uri apkUri;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                apkUri = FileProvider.getUriForFile(context, fileProvider, file);
                 i.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                apkUri = FileProvider.getUriForFile(context, fileProvider, file);
             } else {
                 apkUri = Uri.fromFile(file);
             }

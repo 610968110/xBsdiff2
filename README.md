@@ -2,6 +2,12 @@
 ===
 * 根据bsdiff制作
 
+需要权限
+````xml
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<!--8.0以上需要添加权限-->
+<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+````
 首先 引入该项目：
 
 ````xml
